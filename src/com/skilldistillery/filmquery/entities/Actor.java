@@ -14,7 +14,7 @@ public class Actor {
 		
 	}
 
-	protected Actor(int id, String firstName, String lastName) {
+	public Actor(int id, String firstName, String lastName) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -69,8 +69,8 @@ public class Actor {
 
 	@Override
 	public String toString() {
-		return "Actor [id=" + id + ", " + (firstName != null ? "firstName=" + firstName + ", " : "")
-				+ (lastName != null ? "lastName=" + lastName : "") + "]";
+		return (firstName != null ? " First Name = "  + firstName + "  " : "")
+				+ (lastName != null ? " Last Name = " + lastName : " ** ");
 	}
 
 	@Override

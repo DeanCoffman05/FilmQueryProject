@@ -8,7 +8,7 @@ public class Film {
 	private String title;
 	private String description;
 	private short releaseYear;
-	private int languageId;
+	private String language;
 	private int rentalDuration;
 	private double rate;
 	private int length;
@@ -16,19 +16,17 @@ public class Film {
 	private String rating;
 	private String features;
 	private List<Film> films;
+	private List<Actor> actors;
 
-	public Film() {
-
-	}
-
-	protected Film(int filmId, String title, String description, short releaseYear, int languageId, int rentalDuration, double rate,
-			int length, double replacementCost, String rating, String features, List<Film> films) {
+	protected Film(int filmId, String title, String description, short releaseYear, String language, int rentalDuration,
+			double rate, int length, double replacementCost, String rating, String features, List<Film> films,
+			List<Actor> actors) {
 		super();
 		this.filmId = filmId;
 		this.title = title;
 		this.description = description;
 		this.releaseYear = releaseYear;
-		this.languageId = languageId;
+		this.language = language;
 		this.rentalDuration = rentalDuration;
 		this.rate = rate;
 		this.length = length;
@@ -36,6 +34,19 @@ public class Film {
 		this.rating = rating;
 		this.features = features;
 		this.films = films;
+		this.actors = actors;
+	}
+
+	public List<Actor> getActors() {
+		return actors;
+	}
+
+	public void setActors(List<Actor> actors) {
+		this.actors = actors;
+	}
+
+	public Film() {
+
 	}
 
 	public int getFilmId() {
@@ -62,6 +73,10 @@ public class Film {
 		this.description = description;
 	}
 
+	public String getLanguage() {
+		return language;
+	}
+
 	public short getReleaseYear() {
 		return releaseYear;
 	}
@@ -70,13 +85,16 @@ public class Film {
 		this.releaseYear = releaseYear;
 	}
 
-	public int getLangId() {
-		return languageId;
+
+	public String setLanguage() {
+			return language;
+	}
+	public void setLanguage(String language) {
+	    this.language = language;
 	}
 
-	public void setLangId(int languageId) {
-		this.languageId = languageId;
-	}
+	
+
 
 	public int getRentDur() {
 		return rentalDuration;
@@ -140,7 +158,7 @@ public class Film {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(description, features, filmId, films, languageId, length, rate, rating, releaseYear, rentalDuration, replacementCost,
+		return Objects.hash(description, features, filmId, films, language, length, rate, rating, releaseYear, rentalDuration, replacementCost,
 				title);
 	}
 
@@ -154,7 +172,7 @@ public class Film {
 		}
 		Film other = (Film) obj;
 		return Objects.equals(description, other.description) && Objects.equals(features, other.features) && filmId == other.filmId
-				&& Objects.equals(films, other.films) && languageId == other.languageId && length == other.length
+				&& Objects.equals(films, other.films) && language == other.language && length == other.length
 				&& Double.doubleToLongBits(rate) == Double.doubleToLongBits(other.rate)
 				&& Objects.equals(rating, other.rating) && releaseYear == other.releaseYear && rentalDuration == other.rentalDuration
 				&& Double.doubleToLongBits(replacementCost) == Double.doubleToLongBits(other.replacementCost)
@@ -163,12 +181,11 @@ public class Film {
 
 	@Override
 	public String toString() {
-		return "Film [filmId=" + filmId + ", " + (title != null ? "title=" + title + ", " : "")
-				+ (description != null ? "description=" + description + ", " : "") + "releaseYear=" + releaseYear + ", languageId=" + languageId
-				+ ", rentalDuration=" + rentalDuration + ", rate=" + rate + ", length=" + length + ", replacementCost=" + replacementCost + ", "
-				+ (rating != null ? "rating=" + rating + ", " : "")
-				+ (features != null ? "features=" + features + ", " : "") + (films != null ? "films=" + films : "")
-				+ "]";
+		return "\n\n\nFilm ID: " + filmId + "\n" + (title != null ? "Title: " + title + "\n" : "")
+				+ (description != null ? "Description: " + description + " " : "") + "\nRelease Year:" + releaseYear + "\n "
+				+ (rating != null ? "Rating: " + rating + " " : "") + (language != null ? "\nLanguage: " + language : " ") + (actors != null ? "\nActors: " + actors : "") ;
 	}
+
+	
 
 }
